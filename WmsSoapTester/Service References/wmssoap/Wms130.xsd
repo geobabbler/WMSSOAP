@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OGC.WMS.SOAP.v1_3_0" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OGC.WMS.SOAP.v1_3_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:22624/Wms130.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="WMS_Capabilities">
+    <xs:sequence>
+      <xs:element name="capabilityField" nillable="true" type="tns:Capability" />
+      <xs:element name="serviceField" nillable="true" type="tns:Service" />
+      <xs:element name="updateSequenceField" nillable="true" type="xs:string" />
+      <xs:element name="versionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WMS_Capabilities" nillable="true" type="tns:WMS_Capabilities" />
+  <xs:complexType name="Capability">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="_ExtendedCapabilitiesField" nillable="true" type="q1:ArrayOfanyType" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="exceptionField" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="layerField" nillable="true" type="tns:Layer" />
+      <xs:element name="requestField" nillable="true" type="tns:Request" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Capability" nillable="true" type="tns:Capability" />
+  <xs:complexType name="Layer">
+    <xs:sequence>
+      <xs:element name="abstractField" nillable="true" type="xs:string" />
+      <xs:element name="attributionField" nillable="true" type="tns:Attribution" />
+      <xs:element name="authorityURLField" nillable="true" type="tns:ArrayOfAuthorityURL" />
+      <xs:element name="boundingBoxField" nillable="true" type="tns:ArrayOfBoundingBox" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="cRSField" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element name="cascadedField" nillable="true" type="xs:string" />
+      <xs:element name="dataURLField" nillable="true" type="tns:ArrayOfDataURL" />
+      <xs:element name="dimensionField" nillable="true" type="tns:ArrayOfDimension" />
+      <xs:element name="eX_GeographicBoundingBoxField" nillable="true" type="tns:EX_GeographicBoundingBox" />
+      <xs:element name="featureListURLField" nillable="true" type="tns:ArrayOfFeatureListURL" />
+      <xs:element name="fixedHeightField" nillable="true" type="xs:string" />
+      <xs:element name="fixedWidthField" nillable="true" type="xs:string" />
+      <xs:element name="identifierField" nillable="true" type="tns:ArrayOfIdentifier" />
+      <xs:element name="keywordListField" nillable="true" type="tns:ArrayOfKeyword" />
+      <xs:element name="layer1Field" nillable="true" type="tns:ArrayOfLayer" />
+      <xs:element name="maxScaleDenominatorField" type="xs:double" />
+      <xs:element name="maxScaleDenominatorFieldSpecified" type="xs:boolean" />
+      <xs:element name="metadataURLField" nillable="true" type="tns:ArrayOfMetadataURL" />
+      <xs:element name="minScaleDenominatorField" type="xs:double" />
+      <xs:element name="minScaleDenominatorFieldSpecified" type="xs:boolean" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="noSubsetsField" type="xs:boolean" />
+      <xs:element name="opaqueField" type="xs:boolean" />
+      <xs:element name="queryableField" type="xs:boolean" />
+      <xs:element name="styleField" nillable="true" type="tns:ArrayOfStyle" />
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Layer" nillable="true" type="tns:Layer" />
+  <xs:complexType name="Attribution">
+    <xs:sequence>
+      <xs:element name="logoURLField" nillable="true" type="tns:LogoURL" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attribution" nillable="true" type="tns:Attribution" />
+  <xs:complexType name="LogoURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="heightField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+      <xs:element name="widthField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogoURL" nillable="true" type="tns:LogoURL" />
+  <xs:complexType name="OnlineResource">
+    <xs:sequence>
+      <xs:element name="actuateField" type="tns:actuateType" />
+      <xs:element name="actuateFieldSpecified" type="xs:boolean" />
+      <xs:element name="arcroleField" nillable="true" type="xs:string" />
+      <xs:element name="hrefField" nillable="true" type="xs:string" />
+      <xs:element name="roleField" nillable="true" type="xs:string" />
+      <xs:element name="showField" type="tns:showType" />
+      <xs:element name="showFieldSpecified" type="xs:boolean" />
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" type="tns:typeType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OnlineResource" nillable="true" type="tns:OnlineResource" />
+  <xs:simpleType name="actuateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="onLoad" />
+      <xs:enumeration value="onRequest" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="actuateType" nillable="true" type="tns:actuateType" />
+  <xs:simpleType name="showType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="new" />
+      <xs:enumeration value="replace" />
+      <xs:enumeration value="embed" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="showType" nillable="true" type="tns:showType" />
+  <xs:simpleType name="typeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="simple" />
+      <xs:enumeration value="extended" />
+      <xs:enumeration value="title" />
+      <xs:enumeration value="resource" />
+      <xs:enumeration value="locator" />
+      <xs:enumeration value="arc" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="typeType" nillable="true" type="tns:typeType" />
+  <xs:complexType name="ArrayOfAuthorityURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuthorityURL" nillable="true" type="tns:AuthorityURL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuthorityURL" nillable="true" type="tns:ArrayOfAuthorityURL" />
+  <xs:complexType name="AuthorityURL">
+    <xs:sequence>
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorityURL" nillable="true" type="tns:AuthorityURL" />
+  <xs:complexType name="ArrayOfBoundingBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BoundingBox" nillable="true" type="tns:BoundingBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBoundingBox" nillable="true" type="tns:ArrayOfBoundingBox" />
+  <xs:complexType name="BoundingBox">
+    <xs:sequence>
+      <xs:element name="cRSField" nillable="true" type="xs:string" />
+      <xs:element name="maxxField" type="xs:double" />
+      <xs:element name="maxyField" type="xs:double" />
+      <xs:element name="minxField" type="xs:double" />
+      <xs:element name="minyField" type="xs:double" />
+      <xs:element name="resxField" type="xs:double" />
+      <xs:element name="resxFieldSpecified" type="xs:boolean" />
+      <xs:element name="resyField" type="xs:double" />
+      <xs:element name="resyFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BoundingBox" nillable="true" type="tns:BoundingBox" />
+  <xs:complexType name="ArrayOfDataURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataURL" nillable="true" type="tns:DataURL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataURL" nillable="true" type="tns:ArrayOfDataURL" />
+  <xs:complexType name="DataURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataURL" nillable="true" type="tns:DataURL" />
+  <xs:complexType name="ArrayOfDimension">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Dimension" nillable="true" type="tns:Dimension" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDimension" nillable="true" type="tns:ArrayOfDimension" />
+  <xs:complexType name="Dimension">
+    <xs:sequence>
+      <xs:element name="currentField" type="xs:boolean" />
+      <xs:element name="currentFieldSpecified" type="xs:boolean" />
+      <xs:element name="defaultField" nillable="true" type="xs:string" />
+      <xs:element name="multipleValuesField" type="xs:boolean" />
+      <xs:element name="multipleValuesFieldSpecified" type="xs:boolean" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="nearestValueField" type="xs:boolean" />
+      <xs:element name="nearestValueFieldSpecified" type="xs:boolean" />
+      <xs:element name="unitSymbolField" nillable="true" type="xs:string" />
+      <xs:element name="unitsField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Dimension" nillable="true" type="tns:Dimension" />
+  <xs:complexType name="EX_GeographicBoundingBox">
+    <xs:sequence>
+      <xs:element name="eastBoundLongitudeField" type="xs:double" />
+      <xs:element name="northBoundLatitudeField" type="xs:double" />
+      <xs:element name="southBoundLatitudeField" type="xs:double" />
+      <xs:element name="westBoundLongitudeField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EX_GeographicBoundingBox" nillable="true" type="tns:EX_GeographicBoundingBox" />
+  <xs:complexType name="ArrayOfFeatureListURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FeatureListURL" nillable="true" type="tns:FeatureListURL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeatureListURL" nillable="true" type="tns:ArrayOfFeatureListURL" />
+  <xs:complexType name="FeatureListURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FeatureListURL" nillable="true" type="tns:FeatureListURL" />
+  <xs:complexType name="ArrayOfIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Identifier" nillable="true" type="tns:Identifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdentifier" nillable="true" type="tns:ArrayOfIdentifier" />
+  <xs:complexType name="Identifier">
+    <xs:sequence>
+      <xs:element name="authorityField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Identifier" nillable="true" type="tns:Identifier" />
+  <xs:complexType name="ArrayOfKeyword">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Keyword" nillable="true" type="tns:Keyword" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyword" nillable="true" type="tns:ArrayOfKeyword" />
+  <xs:complexType name="Keyword">
+    <xs:sequence>
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+      <xs:element name="vocabularyField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Keyword" nillable="true" type="tns:Keyword" />
+  <xs:complexType name="ArrayOfLayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Layer" nillable="true" type="tns:Layer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLayer" nillable="true" type="tns:ArrayOfLayer" />
+  <xs:complexType name="ArrayOfMetadataURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetadataURL" nillable="true" type="tns:MetadataURL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetadataURL" nillable="true" type="tns:ArrayOfMetadataURL" />
+  <xs:complexType name="MetadataURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetadataURL" nillable="true" type="tns:MetadataURL" />
+  <xs:complexType name="ArrayOfStyle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Style" nillable="true" type="tns:Style" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStyle" nillable="true" type="tns:ArrayOfStyle" />
+  <xs:complexType name="Style">
+    <xs:sequence>
+      <xs:element name="abstractField" nillable="true" type="xs:string" />
+      <xs:element name="legendURLField" nillable="true" type="tns:ArrayOfLegendURL" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="styleSheetURLField" nillable="true" type="tns:StyleSheetURL" />
+      <xs:element name="styleURLField" nillable="true" type="tns:StyleURL" />
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Style" nillable="true" type="tns:Style" />
+  <xs:complexType name="ArrayOfLegendURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LegendURL" nillable="true" type="tns:LegendURL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLegendURL" nillable="true" type="tns:ArrayOfLegendURL" />
+  <xs:complexType name="LegendURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="heightField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+      <xs:element name="widthField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LegendURL" nillable="true" type="tns:LegendURL" />
+  <xs:complexType name="StyleSheetURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StyleSheetURL" nillable="true" type="tns:StyleSheetURL" />
+  <xs:complexType name="StyleURL">
+    <xs:sequence>
+      <xs:element name="formatField" nillable="true" type="xs:string" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StyleURL" nillable="true" type="tns:StyleURL" />
+  <xs:complexType name="Request">
+    <xs:sequence>
+      <xs:element name="_ExtendedOperationField" nillable="true" type="tns:ArrayOfOperationType" />
+      <xs:element name="getCapabilitiesField" nillable="true" type="tns:OperationType" />
+      <xs:element name="getFeatureInfoField" nillable="true" type="tns:OperationType" />
+      <xs:element name="getMapField" nillable="true" type="tns:OperationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Request" nillable="true" type="tns:Request" />
+  <xs:complexType name="ArrayOfOperationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OperationType" nillable="true" type="tns:OperationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOperationType" nillable="true" type="tns:ArrayOfOperationType" />
+  <xs:complexType name="OperationType">
+    <xs:sequence>
+      <xs:element name="dCPTypeField" nillable="true" type="tns:ArrayOfDCPType" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="formatField" nillable="true" type="q4:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationType" nillable="true" type="tns:OperationType" />
+  <xs:complexType name="ArrayOfDCPType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DCPType" nillable="true" type="tns:DCPType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDCPType" nillable="true" type="tns:ArrayOfDCPType" />
+  <xs:complexType name="DCPType">
+    <xs:sequence>
+      <xs:element name="hTTPField" nillable="true" type="tns:HTTP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DCPType" nillable="true" type="tns:DCPType" />
+  <xs:complexType name="HTTP">
+    <xs:sequence>
+      <xs:element name="getField" nillable="true" type="tns:Get" />
+      <xs:element name="postField" nillable="true" type="tns:Post" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HTTP" nillable="true" type="tns:HTTP" />
+  <xs:complexType name="Get">
+    <xs:sequence>
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Get" nillable="true" type="tns:Get" />
+  <xs:complexType name="Post">
+    <xs:sequence>
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Post" nillable="true" type="tns:Post" />
+  <xs:complexType name="Service">
+    <xs:sequence>
+      <xs:element name="abstractField" nillable="true" type="xs:string" />
+      <xs:element name="accessConstraintsField" nillable="true" type="xs:string" />
+      <xs:element name="contactInformationField" nillable="true" type="tns:ContactInformation" />
+      <xs:element name="feesField" nillable="true" type="xs:string" />
+      <xs:element name="keywordListField" nillable="true" type="tns:ArrayOfKeyword" />
+      <xs:element name="layerLimitField" nillable="true" type="xs:string" />
+      <xs:element name="maxHeightField" nillable="true" type="xs:string" />
+      <xs:element name="maxWidthField" nillable="true" type="xs:string" />
+      <xs:element name="nameField" type="tns:ServiceName" />
+      <xs:element name="onlineResourceField" nillable="true" type="tns:OnlineResource" />
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Service" nillable="true" type="tns:Service" />
+  <xs:complexType name="ContactInformation">
+    <xs:sequence>
+      <xs:element name="contactAddressField" nillable="true" type="tns:ContactAddress" />
+      <xs:element name="contactElectronicMailAddressField" nillable="true" type="xs:string" />
+      <xs:element name="contactFacsimileTelephoneField" nillable="true" type="xs:string" />
+      <xs:element name="contactPersonPrimaryField" nillable="true" type="tns:ContactPersonPrimary" />
+      <xs:element name="contactPositionField" nillable="true" type="xs:string" />
+      <xs:element name="contactVoiceTelephoneField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactInformation" nillable="true" type="tns:ContactInformation" />
+  <xs:complexType name="ContactAddress">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="xs:string" />
+      <xs:element name="addressTypeField" nillable="true" type="xs:string" />
+      <xs:element name="cityField" nillable="true" type="xs:string" />
+      <xs:element name="countryField" nillable="true" type="xs:string" />
+      <xs:element name="postCodeField" nillable="true" type="xs:string" />
+      <xs:element name="stateOrProvinceField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactAddress" nillable="true" type="tns:ContactAddress" />
+  <xs:complexType name="ContactPersonPrimary">
+    <xs:sequence>
+      <xs:element name="contactOrganizationField" nillable="true" type="xs:string" />
+      <xs:element name="contactPersonField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactPersonPrimary" nillable="true" type="tns:ContactPersonPrimary" />
+  <xs:simpleType name="ServiceName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WMS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceName" nillable="true" type="tns:ServiceName" />
+</xs:schema>

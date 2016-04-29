@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="051961cd-046a-4e7b-8d67-7bd4f8e9f025" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:22624/Wms130.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Wms130.wsdl" MetadataType="Wsdl" ID="500d38f1-70ff-41a8-ab93-f67615230d73" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?wsdl" />
+    <MetadataFile FileName="Wms130.xsd" MetadataType="Schema" ID="f58ebfe5-85ee-40db-8325-d10f3497cd87" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd2" />
+    <MetadataFile FileName="Wms1301.xsd" MetadataType="Schema" ID="4330f9cf-b717-4d97-acd2-da5639076576" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd3" />
+    <MetadataFile FileName="Wms1302.xsd" MetadataType="Schema" ID="60c44e41-374d-4fb1-890a-6835f0c6ad50" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd0" />
+    <MetadataFile FileName="Wms1303.xsd" MetadataType="Schema" ID="7edbb37c-3432-40d2-9f9a-8a804c4a728c" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd1" />
+    <MetadataFile FileName="Wms1304.xsd" MetadataType="Schema" ID="967c3025-e67c-4790-b693-bc2ef1da620a" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
