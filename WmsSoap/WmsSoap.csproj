@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1_3_0\capabilities_1_3_0_xlink.cs" />
+    <Compile Include="BinaryResponse.cs" />
     <Compile Include="Wms130.svc.cs">
       <DependentUpon>Wms130.svc</DependentUpon>
     </Compile>
@@ -77,6 +78,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

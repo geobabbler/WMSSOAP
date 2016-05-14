@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -21,7 +22,9 @@ namespace OGC.WMS.SOAP
         private const string mVersion = "1.3.0";
         private const string mService = "WMS";
         private const string mCapRequest = "GetCapabilities";
+        private const string mMapRequest = "GetMap";
         private const string capabilitiesTemplate = "SERVICE={0}&VERSION={1}&REQUEST={2}";
+        private const string mapTemplate = "SERVICE={0}&VERSION={1}&REQUEST={2}&layers={3}&styles={4}&bbox={5}&width={6}&height={7}&srs={8}&format={9}";
 
         public WMS_Capabilities GetCapabilities()
         {
@@ -68,24 +71,6 @@ namespace OGC.WMS.SOAP
             return retval;
         }
 
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-
         public string GetVersion()
         {
             return mVersion;
@@ -119,5 +104,79 @@ namespace OGC.WMS.SOAP
 
         }
 
+        public BinaryResponse GetMap(string[] layers, string[] styles, BoundingBox bounds, int width, int height, string crs, string format)
+        {
+            BinaryResponse retval = new BinaryResponse();
+            string lyrs = string.Join(",", layers);
+            string styls = styles.Length > 0 ? string.Join(",", styles) : "";
+            string bbox = bounds.minx.ToString() + "," + bounds.miny.ToString() + "," + bounds.maxx.ToString() + "," + bounds.maxy.ToString();
+            HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["baseUrl"] + string.Format(mapTemplate, mService, mVersion, mMapRequest, lyrs, styls, bbox, width.ToString(), height.ToString(), crs, format));
+            Stream responseStream = null;
+            MemoryStream ms;
+
+            try
+            {
+
+                using (var httpResponse = (HttpWebResponse)httpRequest.GetResponse())
+                {
+                    using (responseStream = httpResponse.GetResponseStream())
+                    {
+                        ms = new MemoryStream();
+
+                        byte[] buffer = new byte[1024];
+                        int byteCount;
+                        do
+                        {
+                            byteCount = responseStream.Read(buffer, 0, buffer.Length);
+                            ms.Write(buffer, 0, byteCount);
+                        } while (byteCount > 0);
+                        ms.Position = 0;
+                        retval.ContentType = format;
+                        retval.BinaryPayload = ms;
+                        return retval;
+                    }
+
+
+                    //using (var streamRdr = new StreamReader(responseStream))
+                    //{
+                    //    var response = streamRdr.ReadToEnd();
+
+                    //    httpResponse.Close();
+
+                    //    return LoadFromString(response);
+                    //}
+                }
+
+            }
+            catch(System.Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                //if (responseStream != null)
+                //{
+                //    responseStream.Dispose();
+                //}
+            }
+
+
+
+
+
+            //Bitmap bitmap = new Bitmap(width, height);
+            //for (int i = 0; i < bitmap.Width; i++)
+            //{
+            //    for (int j = 0; j < bitmap.Height; j++)
+            //    {
+            //        bitmap.SetPixel(i, j, (Math.Abs(i - j) < 2) ? Color.Blue : Color.Yellow);
+            //    }
+            //}
+            //MemoryStream ms = new MemoryStream();
+            //bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //ms.Position = 0;
+            //WebOperationContext.Current.OutgoingResponse.ContentType = format;
+            //return ms;
+        }
     }
 }

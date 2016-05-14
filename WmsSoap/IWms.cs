@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -10,7 +11,7 @@ using OGC.WMS.SOAP.v1_3_0;
 namespace OGC.WMS.SOAP
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract (Namespace = "http://schemas.opengis.net/wms/1.3.0/soap")]
+    [ServiceContract (Namespace = "http://schemas.opengis.net/wms/soap")]
     public interface IWms
     {
 
@@ -21,10 +22,13 @@ namespace OGC.WMS.SOAP
         WMS_Capabilities GetCapabilities();
 
         [OperationContract]
-        string GetData(int value);
+        BinaryResponse GetMap(string[] layers, string[] styles, BoundingBox bounds, int width, int height, string crs, string format);
 
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        //[OperationContract]
+        //string GetData(int value);
+
+        //[OperationContract]
+        //CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
     }

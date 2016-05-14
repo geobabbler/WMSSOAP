@@ -153,7 +153,10 @@ namespace WmsSoapTester.wmssoap {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WmsSoapTester.wmssoap.ServiceName))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WmsSoapTester.wmssoap.CompositeType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WmsSoapTester.wmssoap.BinaryResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.IO.Stream))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.IO.MemoryStream))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.MarshalByRefObject))]
     public partial class Capability : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -3042,18 +3045,19 @@ namespace WmsSoapTester.wmssoap {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/OGC.WMS.SOAP")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BinaryResponse", Namespace="http://schemas.datacontract.org/2004/07/OGC.WMS.SOAP")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.IO.MemoryStream))]
+    public partial class BinaryResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private System.IO.Stream BinaryPayloadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string ContentTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3066,27 +3070,27 @@ namespace WmsSoapTester.wmssoap {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public System.IO.Stream BinaryPayload {
             get {
-                return this.BoolValueField;
+                return this.BinaryPayloadField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.BinaryPayloadField, value) != true)) {
+                    this.BinaryPayloadField = value;
+                    this.RaisePropertyChanged("BinaryPayload");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public string ContentType {
             get {
-                return this.StringValueField;
+                return this.ContentTypeField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.ContentTypeField, value) != true)) {
+                    this.ContentTypeField = value;
+                    this.RaisePropertyChanged("ContentType");
                 }
             }
         }
@@ -3102,32 +3106,26 @@ namespace WmsSoapTester.wmssoap {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wmssoap.IWms")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://schemas.opengis.net/wms/soap", ConfigurationName="wmssoap.IWms")]
     public interface IWms {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetVersion", ReplyAction="http://tempuri.org/IWms/GetVersionResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://schemas.opengis.net/wms/soap/IWms/GetVersion", ReplyAction="http://schemas.opengis.net/wms/soap/IWms/GetVersionResponse")]
         string GetVersion();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetVersion", ReplyAction="http://tempuri.org/IWms/GetVersionResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://schemas.opengis.net/wms/soap/IWms/GetVersion", ReplyAction="http://schemas.opengis.net/wms/soap/IWms/GetVersionResponse")]
         System.Threading.Tasks.Task<string> GetVersionAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetCapabilities", ReplyAction="http://tempuri.org/IWms/GetCapabilitiesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://schemas.opengis.net/wms/soap/IWms/GetCapabilities", ReplyAction="http://schemas.opengis.net/wms/soap/IWms/GetCapabilitiesResponse")]
         WmsSoapTester.wmssoap.WMS_Capabilities GetCapabilities();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetCapabilities", ReplyAction="http://tempuri.org/IWms/GetCapabilitiesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://schemas.opengis.net/wms/soap/IWms/GetCapabilities", ReplyAction="http://schemas.opengis.net/wms/soap/IWms/GetCapabilitiesResponse")]
         System.Threading.Tasks.Task<WmsSoapTester.wmssoap.WMS_Capabilities> GetCapabilitiesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetData", ReplyAction="http://tempuri.org/IWms/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://schemas.opengis.net/wms/soap/IWms/GetMap", ReplyAction="http://schemas.opengis.net/wms/soap/IWms/GetMapResponse")]
+        WmsSoapTester.wmssoap.BinaryResponse GetMap(string[] layers, string[] styles, WmsSoapTester.wmssoap.BoundingBox bounds, int width, int height, string crs, string format);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetData", ReplyAction="http://tempuri.org/IWms/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWms/GetDataUsingDataContractResponse")]
-        WmsSoapTester.wmssoap.CompositeType GetDataUsingDataContract(WmsSoapTester.wmssoap.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWms/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWms/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<WmsSoapTester.wmssoap.CompositeType> GetDataUsingDataContractAsync(WmsSoapTester.wmssoap.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://schemas.opengis.net/wms/soap/IWms/GetMap", ReplyAction="http://schemas.opengis.net/wms/soap/IWms/GetMapResponse")]
+        System.Threading.Tasks.Task<WmsSoapTester.wmssoap.BinaryResponse> GetMapAsync(string[] layers, string[] styles, WmsSoapTester.wmssoap.BoundingBox bounds, int width, int height, string crs, string format);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3173,20 +3171,12 @@ namespace WmsSoapTester.wmssoap {
             return base.Channel.GetCapabilitiesAsync();
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public WmsSoapTester.wmssoap.BinaryResponse GetMap(string[] layers, string[] styles, WmsSoapTester.wmssoap.BoundingBox bounds, int width, int height, string crs, string format) {
+            return base.Channel.GetMap(layers, styles, bounds, width, height, crs, format);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
-        public WmsSoapTester.wmssoap.CompositeType GetDataUsingDataContract(WmsSoapTester.wmssoap.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<WmsSoapTester.wmssoap.CompositeType> GetDataUsingDataContractAsync(WmsSoapTester.wmssoap.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<WmsSoapTester.wmssoap.BinaryResponse> GetMapAsync(string[] layers, string[] styles, WmsSoapTester.wmssoap.BoundingBox bounds, int width, int height, string crs, string format) {
+            return base.Channel.GetMapAsync(layers, styles, bounds, width, height, crs, format);
         }
     }
 }

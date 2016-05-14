@@ -86,6 +86,7 @@
     <None Include="Service References\wmssoap\Wms130.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\wmssoap\Wms1301.wsdl" />
     <None Include="Service References\wmssoap\Wms1301.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -98,7 +99,13 @@
     <None Include="Service References\wmssoap\Wms1304.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\wmssoap\WmsSoapTester.wmssoap.CompositeType.datasource">
+    <None Include="Service References\wmssoap\Wms1305.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wmssoap\Wms13051.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wmssoap\WmsSoapTester.wmssoap.BinaryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wmssoap\WmsSoapTester.wmssoap.WMS_Capabilities.datasource">

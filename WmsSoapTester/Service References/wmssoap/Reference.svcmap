@@ -27,7 +27,10 @@
     <MetadataFile FileName="Wms1301.xsd" MetadataType="Schema" ID="4330f9cf-b717-4d97-acd2-da5639076576" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd3" />
     <MetadataFile FileName="Wms1302.xsd" MetadataType="Schema" ID="60c44e41-374d-4fb1-890a-6835f0c6ad50" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd0" />
     <MetadataFile FileName="Wms1303.xsd" MetadataType="Schema" ID="7edbb37c-3432-40d2-9f9a-8a804c4a728c" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd1" />
+    <MetadataFile FileName="Wms1301.wsdl" MetadataType="Wsdl" ID="f09a1a19-444a-4528-8acf-24f1280bf825" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?wsdl=wsdl0" />
     <MetadataFile FileName="Wms1304.xsd" MetadataType="Schema" ID="967c3025-e67c-4790-b693-bc2ef1da620a" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd4" />
+    <MetadataFile FileName="Wms1305.xsd" MetadataType="Schema" ID="8f18f8a5-df50-4ed0-a7a4-7e561d0f7a1a" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd5" />
+    <MetadataFile FileName="Wms13051.xsd" MetadataType="Schema" ID="f365ee04-8d17-40b1-8706-55e04be09fa3" SourceId="1" SourceUrl="http://localhost:22624/Wms130.svc?xsd=xsd6" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
