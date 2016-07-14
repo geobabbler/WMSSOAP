@@ -63,11 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Wms130.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1_3_0\capabilities_1_3_0_xlink.cs" />
     <Compile Include="BinaryResponse.cs" />
+    <Compile Include="IWmsObject.cs" />
+    <Compile Include="SLD\GetMap.Designer.cs" />
     <Compile Include="Wms130.svc.cs">
       <DependentUpon>Wms130.svc</DependentUpon>
     </Compile>
@@ -79,6 +83,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\File System.pubxml" />
+    <None Include="SLD\xsd\capabilities_1_3_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\DescribeLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\feature.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\FeatureStyle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\filter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\GetMap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\owsCommon.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\se_common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\sldAll.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\sld_capabilities.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\StyledLayerDescriptor.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SLD\xsd\xlink.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
