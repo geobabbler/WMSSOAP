@@ -25,6 +25,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute("DescribeLayerResponse", Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class DescribeLayerResponseType
     {
         
@@ -36,7 +37,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._layerDescription = new List<LayerDescriptionType>();
         }
-        
+
+        [DataMember]
         public string Version
         {
             get
@@ -50,6 +52,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("LayerDescription")]
+        [DataMember]
         public List<LayerDescriptionType> LayerDescription
         {
             get
@@ -68,6 +71,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/sld")]
+    [DataContract]
     public partial class LayerDescriptionType
     {
         
@@ -82,7 +86,8 @@ namespace OGC.WMS.SOAP.SLD
             this._typeName = new List<TypeNameType>();
             this._onlineResource = new OnlineResourceType();
         }
-        
+
+        [DataMember]
         public owsTypeType owsType
         {
             get
@@ -96,6 +101,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public OnlineResourceType OnlineResource
         {
             get
@@ -109,6 +115,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("TypeName")]
+        [DataMember]
         public List<TypeNameType> TypeName
         {
             get
@@ -125,6 +132,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/sld")]
+    [DataContract]
     public enum owsTypeType
     {
         
@@ -140,6 +148,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/se")]
+    [DataContract]
     public partial class OnlineResourceType
     {
         
@@ -163,6 +172,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public typeType type
         {
             get
@@ -176,6 +186,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink", DataType="anyURI")]
+        [DataMember]
         public string href
         {
             get
@@ -189,6 +200,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink", DataType="anyURI")]
+        [DataMember]
         public string role
         {
             get
@@ -202,6 +214,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink", DataType="anyURI")]
+        [DataMember]
         public string arcrole
         {
             get
@@ -215,6 +228,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public string title
         {
             get
@@ -228,6 +242,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public showType show
         {
             get
@@ -241,6 +256,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public actuateType actuate
         {
             get
@@ -257,6 +273,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/1999/xlink")]
+    [DataContract]
     public enum typeType
     {
         
@@ -282,6 +299,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/1999/xlink")]
+    [DataContract]
     public enum showType
     {
         
@@ -304,6 +322,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/1999/xlink")]
+    [DataContract]
     public enum actuateType
     {
         
@@ -325,6 +344,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/sld")]
+    [DataContract]
     public partial class TypeNameType
     {
         
@@ -332,6 +352,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("CoverageName", typeof(string), Namespace="http://www.opengis.net/se")]
         [System.Xml.Serialization.XmlElementAttribute("FeatureTypeName", typeof(System.Xml.XmlQualifiedName), Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public object Item
         {
             get
@@ -351,6 +372,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class UserDefinedSymbolization
     {
         
@@ -378,6 +400,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(false)]
+        [DataMember]
         public bool SupportSLD
         {
             get
@@ -392,6 +415,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(false)]
+        [DataMember]
         public bool UserLayer
         {
             get
@@ -406,6 +430,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(false)]
+        [DataMember]
         public bool UserStyle
         {
             get
@@ -420,6 +445,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(false)]
+        [DataMember]
         public bool RemoteWFS
         {
             get
@@ -434,6 +460,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(false)]
+        [DataMember]
         public bool InlineFeature
         {
             get
@@ -448,6 +475,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute(false)]
+        [DataMember]
         public bool RemoteWCS
         {
             get
@@ -467,6 +495,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/wms")]
     [System.Xml.Serialization.XmlRootAttribute("DescribeLayer", Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class OperationType
     {
         
@@ -481,6 +510,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("Format")]
+        [DataMember]
         public List<string> Format
         {
             get
@@ -494,6 +524,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("DCPType")]
+        [DataMember]
         public List<DCPType> DCPType
         {
             get
@@ -512,6 +543,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/wms")]
+    [DataContract]
     public partial class DCPType
     {
         
@@ -521,7 +553,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._hTTP = new HTTP();
         }
-        
+
+        [DataMember]
         public HTTP HTTP
         {
             get
@@ -540,6 +573,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/wms")]
+    [DataContract]
     public partial class HTTP
     {
         
@@ -552,7 +586,8 @@ namespace OGC.WMS.SOAP.SLD
             this._post = new Post();
             this._get = new Get();
         }
-        
+
+        [DataMember]
         public Get Get
         {
             get
@@ -564,7 +599,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._get = value;
             }
         }
-        
+
+        [DataMember]
         public Post Post
         {
             get
@@ -583,6 +619,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/wms")]
+    [DataContract]
     public partial class Get
     {
         
@@ -592,7 +629,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._onlineResource = new OnlineResource();
         }
-        
+
+        [DataMember]
         public OnlineResource OnlineResource
         {
             get
@@ -611,6 +649,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/wms")]
+    [DataContract]
     public partial class OnlineResource
     {
         
@@ -634,6 +673,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public typeType type
         {
             get
@@ -647,6 +687,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink", DataType="anyURI")]
+        [DataMember]
         public string href
         {
             get
@@ -660,6 +701,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink", DataType="anyURI")]
+        [DataMember]
         public string role
         {
             get
@@ -673,6 +715,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink", DataType="anyURI")]
+        [DataMember]
         public string arcrole
         {
             get
@@ -686,6 +729,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public string title
         {
             get
@@ -699,6 +743,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public showType show
         {
             get
@@ -712,6 +757,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://www.w3.org/1999/xlink")]
+        [DataMember]
         public actuateType actuate
         {
             get
@@ -730,6 +776,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/wms")]
+    [DataContract]
     public partial class Post
     {
         
@@ -739,7 +786,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._onlineResource = new OnlineResource();
         }
-        
+
+        [DataMember]
         public OnlineResource OnlineResource
         {
             get
@@ -857,13 +905,15 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/se")]
+    [DataContract]
     public partial class DescriptionType
     {
         
         private string _title;
         
         private string _abstract;
-        
+
+        [DataMember]
         public string Title
         {
             get
@@ -875,7 +925,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._title = value;
             }
         }
-        
+
+        [DataMember]
         public string Abstract
         {
             get
@@ -895,6 +946,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class UseSLDLibrary
     {
         
@@ -906,6 +958,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public OnlineResourceType OnlineResource
         {
             get
@@ -1008,6 +1061,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class LayerFeatureConstraints
     {
         
@@ -1019,6 +1073,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("FeatureTypeConstraint")]
+        [DataMember]
         public List<FeatureTypeConstraint> FeatureTypeConstraint
         {
             get
@@ -1038,6 +1093,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class FeatureTypeConstraint
     {
         
@@ -1054,6 +1110,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public System.Xml.XmlQualifiedName FeatureTypeName
         {
             get
@@ -1067,6 +1124,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/ogc")]
+        [DataMember]
         public FilterType Filter
         {
             get
@@ -1080,6 +1138,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("Extent")]
+        [DataMember]
         public List<Extent> Extent
         {
             get
@@ -1098,6 +1157,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/ogc")]
+    [DataContract]
     public partial class FilterType
     {
         
@@ -1135,6 +1195,7 @@ namespace OGC.WMS.SOAP.SLD
         [System.Xml.Serialization.XmlElementAttribute("logicOps", typeof(LogicOpsType))]
         [System.Xml.Serialization.XmlElementAttribute("spatialOps", typeof(SpatialOpsType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
+        [DataMember]
         public object[] Items
         {
             get
@@ -1149,6 +1210,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [DataMember]
         public ItemsChoiceType16[] ItemsElementName
         {
             get
@@ -1167,6 +1229,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/ogc")]
+    [DataContract]
     public partial class BinaryLogicOpType : LogicOpsType
     {
         
@@ -1202,6 +1265,7 @@ namespace OGC.WMS.SOAP.SLD
         [System.Xml.Serialization.XmlElementAttribute("logicOps", typeof(LogicOpsType))]
         [System.Xml.Serialization.XmlElementAttribute("spatialOps", typeof(SpatialOpsType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
+        [DataMember]
         public object[] Items
         {
             get
@@ -1216,6 +1280,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [DataMember]
         public ItemsChoiceType11[] ItemsElementName
         {
             get
@@ -1234,6 +1299,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/ogc")]
+    [DataContract]
     public partial class BBOXType : SpatialOpsType
     {
         
@@ -1248,6 +1314,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        [DataMember]
         public PropertyNameType PropertyName
         {
             get
@@ -1262,6 +1329,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("Envelope", typeof(EnvelopeType), Namespace="http://www.opengis.net/gml", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute("EnvelopeWithTimePeriod", typeof(EnvelopeWithTimePeriodType), Namespace="http://www.opengis.net/gml", Order=1)]
+        [DataMember]
         public EnvelopeType Item
         {
             get
@@ -1274,7 +1342,7 @@ namespace OGC.WMS.SOAP.SLD
             }
         }
     }
-    
+    //Dollins left off here 9/19/2016
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3095,6 +3163,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public abstract partial class AbstractGMLType
     {
         
@@ -3114,6 +3183,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("metaDataProperty")]
+        [DataMember]
         public List<MetaDataPropertyType> metaDataProperty
         {
             get
@@ -3125,7 +3195,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._metaDataProperty = value;
             }
         }
-        
+
+        [DataMember]
         public StringOrRefType description
         {
             get
@@ -3139,6 +3210,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("name")]
+        [DataMember]
         public List<CodeType> name
         {
             get
@@ -3152,6 +3224,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, DataType="ID")]
+        [DataMember]
         public string id
         {
             get
@@ -3170,6 +3243,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class MetaDataPropertyType
     {
         
@@ -3180,6 +3254,7 @@ namespace OGC.WMS.SOAP.SLD
         private string _about;
         
         [System.Xml.Serialization.XmlAnyElementAttribute()]
+        [DataMember]
         public System.Xml.XmlElement Any
         {
             get
@@ -3193,6 +3268,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, DataType="anyURI")]
+        [DataMember]
         public string remoteSchema
         {
             get
@@ -3206,6 +3282,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
+        [DataMember]
         public string about
         {
             get
@@ -3224,6 +3301,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class StringOrRefType
     {
         
@@ -3232,6 +3310,7 @@ namespace OGC.WMS.SOAP.SLD
         private string _value;
         
         [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, DataType="anyURI")]
+        [DataMember]
         public string remoteSchema
         {
             get
@@ -3245,6 +3324,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlTextAttribute()]
+        [DataMember]
         public string Value
         {
             get
@@ -7833,6 +7913,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class AffinePlacementType
     {
         
@@ -7849,7 +7930,8 @@ namespace OGC.WMS.SOAP.SLD
             this._refDirection = new List<VectorType>();
             this._location = new DirectPositionType();
         }
-        
+
+        [DataMember]
         public DirectPositionType location
         {
             get
@@ -7863,6 +7945,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("refDirection")]
+        [DataMember]
         public List<VectorType> refDirection
         {
             get
@@ -7876,6 +7959,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(DataType="positiveInteger")]
+        [DataMember]
         public string inDimension
         {
             get
@@ -7889,6 +7973,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(DataType="positiveInteger")]
+        [DataMember]
         public string outDimension
         {
             get
@@ -12611,6 +12696,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public abstract partial class AbstractContinuousCoverageType : AbstractCoverageType
     {
         
@@ -12620,7 +12706,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._coverageFunction = new CoverageFunctionType();
         }
-        
+
+        [DataMember]
         public CoverageFunctionType coverageFunction
         {
             get
@@ -12772,6 +12859,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class DefinitionType : AbstractGMLType
     {
     }
@@ -13676,6 +13764,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public abstract partial class AbstractCoordinateOperationBaseType : DefinitionType
     {
     }
@@ -13691,6 +13780,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public abstract partial class AbstractCoordinateOperationType : AbstractCoordinateOperationBaseType
     {
         
@@ -13721,6 +13811,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("coordinateOperationID")]
+        [DataMember]
         public List<IdentifierType> coordinateOperationID
         {
             get
@@ -13732,7 +13823,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._coordinateOperationID = value;
             }
         }
-        
+
+        [DataMember]
         public StringOrRefType remarks
         {
             get
@@ -13744,7 +13836,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._remarks = value;
             }
         }
-        
+
+        [DataMember]
         public string operationVersion
         {
             get
@@ -13756,7 +13849,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._operationVersion = value;
             }
         }
-        
+
+        [DataMember]
         public ExtentType validArea
         {
             get
@@ -13768,7 +13862,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._validArea = value;
             }
         }
-        
+
+        [DataMember]
         public string scope
         {
             get
@@ -13782,6 +13877,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("_positionalAccuracy")]
+        [DataMember]
         public List<AbstractPositionalAccuracyType> _positionalAccuracy
         {
             get
@@ -13793,7 +13889,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._positionalAccuracyField = value;
             }
         }
-        
+
+        [DataMember]
         public CRSRefType sourceCRS
         {
             get
@@ -13805,7 +13902,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._sourceCRS = value;
             }
         }
-        
+
+        [DataMember]
         public CRSRefType targetCRS
         {
             get
@@ -13824,6 +13922,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class ExtentType
     {
         
@@ -13842,7 +13941,8 @@ namespace OGC.WMS.SOAP.SLD
             this._items = new List<object>();
             this._description = new StringOrRefType();
         }
-        
+
+        [DataMember]
         public StringOrRefType description
         {
             get
@@ -13857,6 +13957,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("boundingBox", typeof(EnvelopeType))]
         [System.Xml.Serialization.XmlElementAttribute("boundingPolygon", typeof(PolygonType))]
+        [DataMember]
         public List<object> Items
         {
             get
@@ -13870,6 +13971,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("verticalExtent")]
+        [DataMember]
         public List<EnvelopeType> verticalExtent
         {
             get
@@ -13883,6 +13985,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("temporalExtent")]
+        [DataMember]
         public List<TimePeriodType> temporalExtent
         {
             get
@@ -13904,6 +14007,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public abstract partial class AbstractPositionalAccuracyType
     {
         
@@ -13913,7 +14017,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._measureDescription = new CodeType();
         }
-        
+
+        [DataMember]
         public CodeType measureDescription
         {
             get
@@ -13932,6 +14037,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class CovarianceMatrixType : AbstractPositionalAccuracyType
     {
         
@@ -13946,6 +14052,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("unitOfMeasure")]
+        [DataMember]
         public List<UnitOfMeasureType> unitOfMeasure
         {
             get
@@ -13959,6 +14066,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("includesElement")]
+        [DataMember]
         public List<CovarianceElementType> includesElement
         {
             get
@@ -13979,12 +14087,14 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class UnitOfMeasureType
     {
         
         private string _uom;
         
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
+        [DataMember]
         public string uom
         {
             get
@@ -14003,6 +14113,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class ConversionToPreferredUnitType : UnitOfMeasureType
     {
         
@@ -14010,6 +14121,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("factor", typeof(double))]
         [System.Xml.Serialization.XmlElementAttribute("formula", typeof(FormulaType))]
+        [DataMember]
         public object Item
         {
             get
@@ -14028,6 +14140,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class FormulaType
     {
         
@@ -14038,7 +14151,8 @@ namespace OGC.WMS.SOAP.SLD
         private double _c;
         
         private double _d;
-        
+
+        [DataMember]
         public double a
         {
             get
@@ -14050,7 +14164,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._a = value;
             }
         }
-        
+
+        [DataMember]
         public double b
         {
             get
@@ -14062,7 +14177,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._b = value;
             }
         }
-        
+
+        [DataMember]
         public double c
         {
             get
@@ -14074,7 +14190,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._c = value;
             }
         }
-        
+
+        [DataMember]
         public double d
         {
             get
@@ -14093,12 +14210,14 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class DerivationUnitTermType : UnitOfMeasureType
     {
         
         private string _exponent;
         
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="integer")]
+        [DataMember]
         public string exponent
         {
             get
@@ -14117,6 +14236,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class CovarianceElementType
     {
         
@@ -14127,6 +14247,7 @@ namespace OGC.WMS.SOAP.SLD
         private double _covariance;
         
         [System.Xml.Serialization.XmlElementAttribute(DataType="positiveInteger")]
+        [DataMember]
         public string rowIndex
         {
             get
@@ -14140,6 +14261,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(DataType="positiveInteger")]
+        [DataMember]
         public string columnIndex
         {
             get
@@ -14151,7 +14273,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._columnIndex = value;
             }
         }
-        
+
+        [DataMember]
         public double covariance
         {
             get
@@ -14170,6 +14293,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class RelativeInternalPositionalAccuracyType : AbstractPositionalAccuracyType
     {
         
@@ -14179,7 +14303,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._result = new MeasureType();
         }
-        
+
+        [DataMember]
         public MeasureType result
         {
             get
@@ -14198,6 +14323,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/gml")]
+    [DataContract]
     public partial class AbsoluteExternalPositionalAccuracyType : AbstractPositionalAccuracyType
     {
         
@@ -14207,7 +14333,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._result = new MeasureType();
         }
-        
+
+        [DataMember]
         public MeasureType result
         {
             get
@@ -18846,6 +18973,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class NamedStyle
     {
         
@@ -18859,6 +18987,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public string Name
         {
             get
@@ -18872,6 +19001,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public DescriptionType Description
         {
             get
@@ -18891,6 +19021,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.opengis.net/sld")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.opengis.net/sld", IsNullable=false)]
+    [DataContract]
     public partial class UserStyle
     {
         
@@ -18909,6 +19040,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public string Name
         {
             get
@@ -18922,6 +19054,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public DescriptionType Description
         {
             get
@@ -18933,7 +19066,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._description = value;
             }
         }
-        
+
+        [DataMember]
         public bool IsDefault
         {
             get
@@ -18949,6 +19083,7 @@ namespace OGC.WMS.SOAP.SLD
         [System.Xml.Serialization.XmlElementAttribute("CoverageStyle", typeof(CoverageStyleType), Namespace="http://www.opengis.net/se")]
         [System.Xml.Serialization.XmlElementAttribute("FeatureTypeStyle", typeof(FeatureTypeStyleType), Namespace="http://www.opengis.net/se")]
         [System.Xml.Serialization.XmlElementAttribute("OnlineResource", typeof(OnlineResourceType), Namespace="http://www.opengis.net/se")]
+        [DataMember]
         public List<object> Items
         {
             get
@@ -18967,6 +19102,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/se")]
+    [DataContract]
     public partial class CoverageStyleType
     {
         
@@ -18988,7 +19124,8 @@ namespace OGC.WMS.SOAP.SLD
             this._semanticTypeIdentifier = new List<string>();
             this._description = new DescriptionType();
         }
-        
+
+        [DataMember]
         public string Name
         {
             get
@@ -19000,7 +19137,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._name = value;
             }
         }
-        
+
+        [DataMember]
         public DescriptionType Description
         {
             get
@@ -19012,7 +19150,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._description = value;
             }
         }
-        
+
+        [DataMember]
         public string CoverageName
         {
             get
@@ -19026,6 +19165,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("SemanticTypeIdentifier")]
+        [DataMember]
         public List<string> SemanticTypeIdentifier
         {
             get
@@ -19040,6 +19180,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("OnlineResource", typeof(OnlineResourceType))]
         [System.Xml.Serialization.XmlElementAttribute("Rule", typeof(RuleType))]
+        [DataMember]
         public List<object> Items
         {
             get
@@ -19053,6 +19194,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
+        [DataMember]
         public VersionType version
         {
             get
@@ -19071,6 +19213,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/se")]
+    [DataContract]
     public partial class RuleType
     {
         
@@ -19094,7 +19237,8 @@ namespace OGC.WMS.SOAP.SLD
             this._legendGraphic = new LegendGraphicType();
             this._description = new DescriptionType();
         }
-        
+
+        [DataMember]
         public string Name
         {
             get
@@ -19106,7 +19250,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._name = value;
             }
         }
-        
+
+        [DataMember]
         public DescriptionType Description
         {
             get
@@ -19118,7 +19263,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._description = value;
             }
         }
-        
+
+        [DataMember]
         public LegendGraphicType LegendGraphic
         {
             get
@@ -19133,6 +19279,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("Filter", typeof(FilterType), Namespace="http://www.opengis.net/ogc")]
         [System.Xml.Serialization.XmlElementAttribute("ElseFilter", typeof(ElseFilterType))]
+        [DataMember]
         public object Item
         {
             get
@@ -19144,7 +19291,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._item = value;
             }
         }
-        
+
+        [DataMember]
         public double MinScaleDenominator
         {
             get
@@ -19156,7 +19304,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._minScaleDenominator = value;
             }
         }
-        
+
+        [DataMember]
         public double MaxScaleDenominator
         {
             get
@@ -19170,6 +19319,7 @@ namespace OGC.WMS.SOAP.SLD
         }
         
         [System.Xml.Serialization.XmlElementAttribute("Symbolizer")]
+        [DataMember]
         public List<SymbolizerType> Symbolizer
         {
             get
@@ -19188,6 +19338,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/se")]
+    [DataContract]
     public partial class LegendGraphicType
     {
         
@@ -19197,7 +19348,8 @@ namespace OGC.WMS.SOAP.SLD
         {
             this._graphic = new GraphicType();
         }
-        
+
+        [DataMember]
         public GraphicType Graphic
         {
             get
@@ -19216,6 +19368,7 @@ namespace OGC.WMS.SOAP.SLD
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.opengis.net/se")]
+    [DataContract]
     public partial class GraphicType
     {
         
@@ -19243,6 +19396,7 @@ namespace OGC.WMS.SOAP.SLD
         
         [System.Xml.Serialization.XmlElementAttribute("ExternalGraphic", typeof(ExternalGraphicType))]
         [System.Xml.Serialization.XmlElementAttribute("Mark", typeof(MarkType))]
+        [DataMember]
         public List<object> Items
         {
             get
@@ -19254,7 +19408,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._items = value;
             }
         }
-        
+
+        [DataMember]
         public ParameterValueType Opacity
         {
             get
@@ -19266,7 +19421,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._opacity = value;
             }
         }
-        
+
+        [DataMember]
         public ParameterValueType Size
         {
             get
@@ -19278,7 +19434,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._size = value;
             }
         }
-        
+
+        [DataMember]
         public ParameterValueType Rotation
         {
             get
@@ -19290,7 +19447,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._rotation = value;
             }
         }
-        
+
+        [DataMember]
         public AnchorPointType AnchorPoint
         {
             get
@@ -19302,7 +19460,8 @@ namespace OGC.WMS.SOAP.SLD
                 this._anchorPoint = value;
             }
         }
-        
+
+        [DataMember]
         public DisplacementType Displacement
         {
             get

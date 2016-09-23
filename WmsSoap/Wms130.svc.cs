@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Xml.Linq;
 
 namespace OGC.WMS.SOAP
 {
@@ -65,6 +66,53 @@ namespace OGC.WMS.SOAP
                 }
             }
             catch(System.Exception ex)
+            {
+                return retval;
+            }
+            return retval;
+        }
+
+        public XmlDocument GetCapabilitiesRaw()
+        {
+            XmlDocument retval = null;
+            try
+            {
+                HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["baseUrl"] + string.Format(capabilitiesTemplate, mService, mVersion, mCapRequest));
+                Stream responseStream = null;
+                try
+                {
+
+                    using (var httpResponse = (HttpWebResponse)httpRequest.GetResponse())
+                    {
+                        responseStream = httpResponse.GetResponseStream();
+
+                        if (responseStream == null)
+                        {
+                            return null;
+                        }
+
+                        using (var streamRdr = new StreamReader(responseStream))
+                        {
+                            var response = streamRdr.ReadToEnd();
+
+                            httpResponse.Close();
+                            //retval = response;
+                            retval = new XmlDocument();
+                            retval.LoadXml(response);
+                            return retval;
+                        }
+                    }
+
+                }
+                finally
+                {
+                    if (responseStream != null)
+                    {
+                        responseStream.Dispose();
+                    }
+                }
+            }
+            catch (System.Exception ex)
             {
                 return retval;
             }
@@ -179,13 +227,13 @@ namespace OGC.WMS.SOAP
             //return ms;
         }
         
-        public BinaryResponse PostMap (OGC.WMS.SOAP.SLD.GetMapType getMapSld)
+        public BinaryResponse PostMap (OGC.WMS.SOAP.SLD.GetMapType GetMap)
         {
             BinaryResponse retval = new BinaryResponse();
             HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["baseUrl"]);
             Stream responseStream = null;
             MemoryStream ms;
-            var postData = SerializeSldObject(getMapSld);
+            var postData = SerializeSldObject(GetMap);
             var data = Encoding.UTF8.GetBytes(postData);
             httpRequest.Method = "POST";
             httpRequest.ContentType = "text/xml";
@@ -208,7 +256,7 @@ namespace OGC.WMS.SOAP
                         ms.Write(buffer, 0, byteCount);
                     } while (byteCount > 0);
                     ms.Position = 0;
-                    retval.ContentType = getMapSld.Output.Format;
+                    retval.ContentType = GetMap.Output.Format;
                     retval.BinaryPayload = ms;
                     return retval;
                 }
@@ -224,6 +272,92 @@ namespace OGC.WMS.SOAP
                 //}
             }
             //return true;
+        }
+
+        public BinaryResponse PostMapRaw(XmlElement GetMap)
+        {
+            BinaryResponse retval = new BinaryResponse();
+            HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["baseUrl"]);
+            Stream responseStream = null;
+            MemoryStream ms;
+            var postData = GetMap.OuterXml; //SerializeSldObject(GetMap);
+            var data = Encoding.UTF8.GetBytes(postData);
+            httpRequest.Method = "POST";
+            httpRequest.ContentType = "text/xml";
+            httpRequest.ContentLength = data.Length;
+            using (var stream = httpRequest.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+            using (var httpResponse = (HttpWebResponse)httpRequest.GetResponse())
+            {
+                using (responseStream = httpResponse.GetResponseStream())
+                {
+                    ms = new MemoryStream();
+
+                    byte[] buffer = new byte[1024];
+                    int byteCount;
+                    do
+                    {
+                        byteCount = responseStream.Read(buffer, 0, buffer.Length);
+                        ms.Write(buffer, 0, byteCount);
+                    } while (byteCount > 0);
+                    ms.Position = 0;
+                    XmlDocument d = new XmlDocument();
+                    d.LoadXml(GetMap.OuterXml);
+                    
+                    //var obj = DeserializeSldObject(d);
+                    retval.ContentType = GetOutputFormat(d);
+                    retval.BinaryPayload = ms;
+                    return retval;
+                }
+
+
+                //using (var streamRdr = new StreamReader(responseStream))
+                //{
+                //    var response = streamRdr.ReadToEnd();
+
+                //    httpResponse.Close();
+
+                //    return LoadFromString(response);
+                //}
+            }
+            //return true;
+        }
+
+        private XmlDocument GetXmlDocument(XElement elt)
+        {
+            using (XmlReader reader = elt.CreateReader())
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(reader);
+                return doc;
+            }
+        }
+
+        private OGC.WMS.SOAP.SLD.GetMapType DeserializeSldObject(XmlDocument doc)
+        {
+            OGC.WMS.SOAP.SLD.GetMapType retval = null;
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(OGC.WMS.SOAP.SLD.GetMapType));
+                System.IO.MemoryStream stm = new MemoryStream();
+                doc.Save(stm);
+                stm.Position = 0;
+                retval = (OGC.WMS.SOAP.SLD.GetMapType)serializer.Deserialize(stm);
+            }
+            catch(System.Exception ex)
+            {
+                retval = null;
+            }
+            return retval;
+        }
+
+        private string GetOutputFormat(XmlDocument d)
+        {
+            XmlNode n = d.DocumentElement;
+            XmlNode o = n.SelectSingleNode("Output/Format");
+            return o.InnerText; 
         }
 
         private string SerializeSldObject(OGC.WMS.SOAP.SLD.GetMapType getMapSld)

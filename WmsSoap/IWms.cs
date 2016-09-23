@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using System.Web.Services.Protocols;
 using System.Text;
 using OGC.WMS.SOAP.v1_3_0;
 
@@ -23,13 +24,21 @@ namespace OGC.WMS.SOAP
         [OperationContract]
         WMS_Capabilities GetCapabilities();
 
+        [OperationContract, XmlSerializerFormat]
+        [SoapDocumentMethod(Use =System.Web.Services.Description.SoapBindingUse.Literal)]
+        System.Xml.XmlDocument GetCapabilitiesRaw();
+
         [OperationContract]
         BinaryResponse GetMap(string[] layers, string[] styles, BoundingBox bounds, int width, int height, string crs, string format);
 
         [OperationContract]
         BinaryResponse PostMap(OGC.WMS.SOAP.SLD.GetMapType getMapSld);
 
-     }
+        [OperationContract]
+        [SoapDocumentMethod(Use = System.Web.Services.Description.SoapBindingUse.Literal)]
+        BinaryResponse PostMapRaw(System.Xml.XmlElement getMapSld);
+
+    }
 
     static class Helper
     {
@@ -37,8 +46,13 @@ namespace OGC.WMS.SOAP
         {
             System.Collections.Generic.List<System.Type> knownTypes =
                 new System.Collections.Generic.List<System.Type>();
+            string nmspc = "OGC.WMS.SOAP.SLD";
+            var q = (from t in Assembly.GetExecutingAssembly().GetTypes()
+                    where t.Namespace == nmspc
+                    select t).ToList();
+            knownTypes.AddRange(q);
             // Add any types to include here.
-            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.NamedLayer));
+            /*knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.NamedLayer));
             knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.UserLayer));
             knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.NamedStyle));
             knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.EnvelopeType));
@@ -46,6 +60,14 @@ namespace OGC.WMS.SOAP
             knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.VersionType));
             knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.OutputType));
             knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.CoordType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.AffinePlacementType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.AbsoluteExternalPositionalAccuracyType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.actuateType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.AesheticCriteriaType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.AnchorPointType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.AngleChoiceType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.AngleType));
+            knownTypes.Add(typeof(OGC.WMS.SOAP.SLD.animateColorPrototype));*/
             return knownTypes;
         }
     }
